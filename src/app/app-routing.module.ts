@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import {MainComponent} from './components/main/main.component';
 
 const routes: Routes = [
-  {path: 'bac-a-sable', component: MainComponent}
 ];
 
 @NgModule({

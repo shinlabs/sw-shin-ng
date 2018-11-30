@@ -1,0 +1,17 @@
+.first-row {
+  background-color: #ff931e;
+  height:50%;
+}
+
+.second-row {
+  background-color: #444444;
+  height:50%;
+  color:#ff931e;
+}
+
+.sidenav {
+  width : 20%;
+  height:100%;
+  background-color: #444444;
+  color:#ff931e;
+}
