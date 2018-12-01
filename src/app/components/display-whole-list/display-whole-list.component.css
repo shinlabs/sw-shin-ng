@@ -1,0 +1,24 @@
+table{
+  width:90%;
+  color:#ff931e;
+}
+
+div {
+  width:90%;
+  background-color:#444444;
+  margin:auto;
+  margin-top:4em;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.change-color-on-hover:hover{
+  background-color:#ff931e;
+  color:white;
+}
+
+mat-paginator{
+  color:white;
+}

@@ -42,3 +42,13 @@ a {
   border : solid 1px #ff931e;
   color:#ff931e;
 }
+
+button:hover {
+  color:white;
+  background-color:#ff931e;
+}
+
+a:hover {
+  color:white;
+  background-color:#ff931e;
+}
