@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MatButtonModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatExpansionModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
@@ -21,7 +22,8 @@ import { MainComponent } from './components/main/main.component';
     MatButtonModule,
     MatSidenavModule,
     MatToolbarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

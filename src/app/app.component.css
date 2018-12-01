@@ -15,3 +15,8 @@
   background-color: #444444;
   color:#ff931e;
 }
+
+.inside-accordion {
+  display:flex;
+  flex-direction:column;
+}
