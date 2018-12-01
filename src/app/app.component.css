@@ -9,6 +9,13 @@
   color:#ff931e;
 }
 
+mat-toolbar-row {
+  box-shadow:0 0.1em 1em black;
+}
+
+mat-sidenav-container {
+  box-shadow:0.1em 0 1em black;
+}
 .sidenav {
   width : 20%;
   height:100%;
