@@ -14,8 +14,9 @@ mat-toolbar-row {
 }
 
 mat-sidenav-container {
-  box-shadow:0.1em 0 1em black;
+  box-shadow:0.1em 0 0.3em #222222;
 }
+
 .sidenav {
   width : 20%;
   height:100%;
@@ -26,4 +27,11 @@ mat-sidenav-container {
 .inside-accordion {
   display:flex;
   flex-direction:column;
+}
+
+button {
+  margin-bottom: 1em;
+  background-color:#444444;
+  border : solid 1px #ff931e;
+  color:#ff931e;
 }

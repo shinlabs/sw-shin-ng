@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MatButtonModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatExpansionModule } from '@angular/material';
+import { MatButtonModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
@@ -19,11 +19,11 @@ import { MainComponent } from './components/main/main.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatExpansionModule,
     MatButtonModule,
     MatSidenavModule,
-    MatToolbarModule,
-    BrowserAnimationsModule,
-    MatExpansionModule
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,22 +9,33 @@
 </mat-toolbar>
 <mat-sidenav-container style="height:85%;">
   <mat-sidenav mode="side" opened class="sidenav">
-    <div class="accordion">
-      <mat-accordion>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Personnages
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <div class="inside-accordion">
-            <button mat-button>Afficher tous</button>
-            <button mat-button>Afficher un</button>
-          </div>
-        </mat-expansion-panel>
-      </mat-accordion>
-    </div>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Personnages
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="inside-accordion">
+          <button mat-button>Afficher tous</button>
+          <button mat-button>Afficher un</button>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
 
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Véhicules
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="inside-accordion">
+          <button mat-button>Afficher tous</button>
+          <button mat-button>Afficher un</button>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
   </mat-sidenav>
   <mat-sidenav-content><app-main></app-main></mat-sidenav-content>
 </mat-sidenav-container>
