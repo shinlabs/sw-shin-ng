@@ -15,8 +15,10 @@ export class DisplayWholeListComponent implements OnInit {
   dataSource = new MatTableDataSource<PersoTemp>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 }
 
