@@ -9,11 +9,13 @@ import { MatButtonModule, MatSidenavModule, MatToolbarModule } from '@angular/ma
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
+import { DisplayWholeListComponent } from './components/display-whole-list/display-whole-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+    DisplayWholeListComponent
   ],
   imports: [
     BrowserModule,

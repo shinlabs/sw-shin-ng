@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Vehicule } from '../models/vehicule';
 import { Observable } from 'rxjs/internal/Observable';
 
-const URL_API = environment.baseUrl;
+const URL_API = environment.apiUrl;
 
 @Injectable({
   providedIn: 'root'
