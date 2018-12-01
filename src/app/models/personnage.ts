@@ -15,4 +15,10 @@ export class Personnage {
   url: string;
   created: string;
   edited: string;
+
+  constructor(name:string, birth_year:string, gender:string) {
+    this.name = name;
+    this.birth_year = birth_year;
+    this.gender = gender;
+  }
 }
