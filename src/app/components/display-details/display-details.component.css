@@ -10,7 +10,8 @@ div {
 }
 
 img {
-  width:50%;
+  width:15em;
+  height:15em;
 }
 
 td{
@@ -38,7 +39,7 @@ td{
   align-self:center;
 }
 
-.liste-films{
+.liste{
   margin-top:3em;
   overflow:auto;
 

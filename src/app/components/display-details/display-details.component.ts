@@ -3,10 +3,12 @@ import { PersonnageService } from '../../services/personnage.service';
 import { PlanetService } from '../../services/planet.service';
 import { FilmService } from '../../services/film.service';
 import { VehiculeService } from '../../services/vehicule.service';
+import { SpeciesService } from '../../services/species.service';
 import { environment } from '../../../environments/environment';
 
 import { ActivatedRoute } from '@angular/router';
 import {Personnage} from '../../models/personnage';
+import {StarshipService} from '../../services/starship.service';
 
 const URL_IMG = environment.urlImg;
 
@@ -21,12 +23,16 @@ export class DisplayDetailsComponent implements OnInit {
   homeworld: string;
   listeFilms: string[];
   listeVehicules: string[];
+  listeSpecies: string[];
+  listeStarships: string[];
 
   constructor(private activatedRoute: ActivatedRoute,
               private personnageService: PersonnageService,
               private planetService: PlanetService,
               private filmService: FilmService,
-              private vehiculeService: VehiculeService) { }
+              private vehiculeService: VehiculeService,
+              private speciesService: SpeciesService,
+              private starshipService: StarshipService) { }
 
   ngOnInit() {
     let name = this.activatedRoute.snapshot.paramMap.get('name');
@@ -37,8 +43,12 @@ export class DisplayDetailsComponent implements OnInit {
       });
       this.listeFilms = [];
       this.listeVehicules = [];
+      this.listeSpecies = [];
+      this.listeStarships = [];
       this.filmService.getFilmsByUrlList(this.personnage.films, this.listeFilms);
       this.vehiculeService.getVehiculesByUrlList(this.personnage.vehicles, this.listeVehicules);
+      this.speciesService.getSpeciesByUrlList(this.personnage.species, this.listeSpecies);
+      this.starshipService.getStarshipsByUrlList(this.personnage.starships, this.listeStarships);
     });
   }
 

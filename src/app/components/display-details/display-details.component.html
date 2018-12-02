@@ -29,21 +29,27 @@
         </div>
       </div>
     </mat-grid-tile>
-    <mat-grid-tile>
+    <mat-grid-tile style = "overflow:auto;">
       <mat-grid-tile-header>Espèce</mat-grid-tile-header>
+      <div class="liste">
+        <p *ngFor="let element of this.listeSpecies">{{element}}</p>
+      </div>
     </mat-grid-tile>
     <mat-grid-tile style = "overflow:auto;">
       <mat-grid-tile-header>Scène 1 Prise 4</mat-grid-tile-header>
-      <div class="liste-films">
+      <div class="liste">
         <p *ngFor="let element of this.listeFilms">{{element}}</p>
       </div>
     </mat-grid-tile>
     <mat-grid-tile style = "overflow:auto;">
       <mat-grid-tile-header>Top Gun !</mat-grid-tile-header>
+      <div class="liste">
+        <p *ngFor="let element of this.listeStarships">{{element}}</p>
+      </div>
     </mat-grid-tile>
     <mat-grid-tile style = "overflow:auto;">
       <mat-grid-tile-header>Vrouuummm</mat-grid-tile-header>
-      <div class="liste-films">
+      <div class="liste">
         <p *ngFor="let element of this.listeVehicules">{{element}}</p>
       </div>
     </mat-grid-tile>
