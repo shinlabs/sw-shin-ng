@@ -24,5 +24,8 @@ export class PersonnageService {
         tableau.push(res);
       });
     }
+
+    setTimeout(function() {
+    },4000);
   }
 }
