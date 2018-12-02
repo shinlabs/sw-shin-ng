@@ -25,7 +25,9 @@ td{
 .photo-info-general{
   display:flex;
   justify-content: space-between;
-  background-color:#4658b0;
+  border:solid 0.2em #ff931e;
+  border-radius:0.4em;
+  color:white;
 }
 
 .description-physique {
@@ -42,5 +44,6 @@ td{
 .liste{
   margin-top:3em;
   overflow:auto;
+  color:#ffa849;
 
 }
