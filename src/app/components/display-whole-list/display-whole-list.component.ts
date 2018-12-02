@@ -12,7 +12,6 @@ import {Personnage} from '../../models/personnage';
 })
 export class DisplayWholeListComponent implements OnInit {
   displayedColumns: string[] = ['name', 'birth_year', 'gender'];
-  //dataSource = new MatTableDataSource<PersoTemp>(ELEMENT_DATA);
   dataSource;
 
   constructor(private personnageService: PersonnageService) { }
@@ -35,28 +34,11 @@ export class DisplayWholeListComponent implements OnInit {
     this.dataSource = new MatTableDataSource<Personnage>(tableau);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
+  }
 
-    /*this.personnageService.getPersonnage(1).subscribe(res=>{
-      let pers = res;
-      this.personnageService.getPersonnage(2).subscribe(res => {
-        this.dataSource = new MatTableDataSource<Personnage>([res,pers]);
-      });
-    });*/
-
+  viewDetails(name:string) {
 
   }
 
 
 }
-
-export interface PersoTemp {
-  name:string,
-  birth_year:string,
-  gender:string
-}
-
-const ELEMENT_DATA:PersoTemp[] = [
-  {name:'C3 PO',birth_year:'1990', gender:'M'},
-  {name:'Luke Skywalker', birth_year:'2000', gender:'M'},
-  {name:'Leai Organa', birth_year: '2000', gender:'F'}
-];
