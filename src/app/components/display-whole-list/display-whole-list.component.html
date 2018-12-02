@@ -21,7 +21,7 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="change-color-on-hover"
-    (click)="viewDetails(element.name)"></tr>
+    (click)="viewDetails(row.name)"></tr>
   </table>
 
   <mat-paginator [pageSize]="20" showFirstLastButtons></mat-paginator>

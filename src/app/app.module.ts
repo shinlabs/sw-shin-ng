@@ -13,12 +13,14 @@ import { MatSortModule } from '@angular/material/sort';
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
 import { DisplayWholeListComponent } from './components/display-whole-list/display-whole-list.component';
+import { DisplayDetailsComponent } from './components/display-details/display-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    DisplayWholeListComponent
+    DisplayWholeListComponent,
+    DisplayDetailsComponent
   ],
   imports: [
     BrowserModule,

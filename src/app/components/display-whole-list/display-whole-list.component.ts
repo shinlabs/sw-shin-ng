@@ -13,6 +13,7 @@ import {Personnage} from '../../models/personnage';
 export class DisplayWholeListComponent implements OnInit {
   displayedColumns: string[] = ['name', 'birth_year', 'gender'];
   dataSource;
+  listPersonnages:[];
 
   constructor(private personnageService: PersonnageService) { }
 
@@ -23,20 +24,25 @@ export class DisplayWholeListComponent implements OnInit {
   }
 
   async getAllPersonnage() {
-    let tableau=[];
+    this.listPersonnages=[];
     let promise = new Promise((res, rej) => {
-      this.personnageService.getAllPersonnage(tableau);
+      this.personnageService.getAllPersonnage(this.listPersonnages);
       setTimeout(() => res("done"), 4000);
     });
 
     let result = await promise;
 
-    this.dataSource = new MatTableDataSource<Personnage>(tableau);
+    this.dataSource = new MatTableDataSource<Personnage>(this.listPersonnages);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
 
   viewDetails(name:string) {
+    let pers = this.listPersonnages.find(element => {
+      return (<Personnage>element).name === name;
+    });
+
+    let pers2 = <Personnage>pers;
 
   }
 
