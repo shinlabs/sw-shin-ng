@@ -17,6 +17,7 @@ div {
 .change-color-on-hover:hover{
   background-color:#ff931e;
   color:white;
+  cursor:pointer;
 }
 
 mat-paginator{
