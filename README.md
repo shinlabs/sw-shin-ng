@@ -13,6 +13,15 @@ Utiliser les apis de [SWAPI](https://swapi.co/documentation) et implémenter les
 
 - Angular 6 
 
+## Carnet de bord (ordre anti-chronologique)
+
+- Affichage des détails d'un personnage (utilisation mat-grid)
+- Affichage de tous les personnages (utilisation mat-table / mat-paginator)
+- Création d'une sidenav et de toolbar
+- Création des models
+- Création des services
+
+s
 ## Explication des choix
 
 - La récupération de tous les personnages ou de tous les véhicules se fait grâce
