@@ -49,8 +49,8 @@
     </mat-grid-tile>
     <mat-grid-tile style = "overflow:auto;">
       <mat-grid-tile-header>Vrouuummm</mat-grid-tile-header>
-      <div class="liste">
-        <p *ngFor="let element of this.listeVehicules">{{element}}</p>
+      <div class="liste liens">
+        <a *ngFor="let element of this.listeVehicules" routerLink="/vehicule/details/{{element}}">{{element}}</a>
       </div>
     </mat-grid-tile>
   </mat-grid-list>
@@ -78,8 +78,9 @@
     </mat-grid-tile>
     <mat-grid-tile style = "overflow: auto;">
       <mat-grid-tile-header>Pilotes</mat-grid-tile-header>
-      <div class="liste">
-        <p *ngFor="let element of this.listePilots">{{element}}</p>
+      <div class="liste liens">
+        <a *ngFor="let element of this.listePilots" routerLink="/personnage/details/{{element}}">
+          {{element}}</a>
       </div>
     </mat-grid-tile>
   </mat-grid-list>

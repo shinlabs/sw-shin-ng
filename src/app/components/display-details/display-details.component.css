@@ -47,3 +47,20 @@ td{
   color:#ffa849;
 
 }
+
+.liens{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+}
+
+a {
+  color: #ffa849;
+  text-decoration:none;
+  margin-top:0.5em;
+  margin-bottom:0.3em;
+}
+
+a:hover {
+  color:white;
+}
