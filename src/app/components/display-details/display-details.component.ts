@@ -9,6 +9,7 @@ import { environment } from '../../../environments/environment';
 import { ActivatedRoute } from '@angular/router';
 import {Personnage} from '../../models/personnage';
 import {StarshipService} from '../../services/starship.service';
+import {Vehicule} from '../../models/vehicule';
 
 const URL_IMG = environment.urlImg;
 
@@ -20,11 +21,13 @@ const URL_IMG = environment.urlImg;
 export class DisplayDetailsComponent implements OnInit {
 
   personnage: Personnage;
+  vehicule: Vehicule;
   homeworld: string;
   listeFilms: string[];
   listeVehicules: string[];
   listeSpecies: string[];
   listeStarships: string[];
+  listePilots: string[];
 
   menu: string; // 'personnage' ou 'vehicule'
 
@@ -42,6 +45,7 @@ export class DisplayDetailsComponent implements OnInit {
     if (this.menu === 'personnage') {
       this.detailsPersonnage(name);
     } else {
+      this.detailsVehicule(name);
     }
 
   }
@@ -60,6 +64,16 @@ export class DisplayDetailsComponent implements OnInit {
       this.vehiculeService.getVehiculesByUrlList(this.personnage.vehicles, this.listeVehicules);
       this.speciesService.getSpeciesByUrlList(this.personnage.species, this.listeSpecies);
       this.starshipService.getStarshipsByUrlList(this.personnage.starships, this.listeStarships);
+    });
+  }
+
+  detailsVehicule(name: string) {
+    this.vehiculeService.getVehiculeByName(name).subscribe(res => {
+      this.vehicule = res.results[0];
+      this.listeFilms = [];
+      this.listePilots = [];
+      this.filmService.getFilmsByUrlList(this.vehicule.films, this.listeFilms);
+      this.personnageService.getPersonnagesByUrlList(this.vehicule.pilots, this.listePilots);
     });
   }
 

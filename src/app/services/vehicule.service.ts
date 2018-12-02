@@ -17,8 +17,12 @@ export class VehiculeService {
     return this.httpClient.get<Vehicule>(URL_API + '/vehicles/' + id);
   }
 
+  getVehiculeByName(name: string): Observable<any> {
+    return this.httpClient.get<any>(URL_API + '/vehicles/?search=' + name);
+  }
+
   getAllVehicules(tableau: Vehicule[]) {
-    for (let i = 1; i <= 39; i++) {
+    for (let i = 1; i <= 73; i++) {
       this.getVehiculeById(i).subscribe(res => {
         tableau.push(res);
       });
@@ -31,6 +35,7 @@ export class VehiculeService {
   getVehiculeByUrl(url: string): Observable<Vehicule> {
     return this.httpClient.get<Vehicule>(url);
   }
+
   getVehiculesByUrlList(list: string[], vehicules: string[]) {
     for (let i = 0; i < list.length; i++) {
       this.getVehiculeByUrl(list[i]).subscribe(res => {
