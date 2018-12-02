@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PersonnageService } from '../../services/personnage.service';
 import { PlanetService } from '../../services/planet.service';
 import { FilmService } from '../../services/film.service';
+import { VehiculeService } from '../../services/vehicule.service';
 import { environment } from '../../../environments/environment';
 
 import { ActivatedRoute } from '@angular/router';
@@ -19,11 +20,13 @@ export class DisplayDetailsComponent implements OnInit {
   personnage: Personnage;
   homeworld: string;
   listeFilms: string[];
+  listeVehicules: string[];
 
   constructor(private activatedRoute: ActivatedRoute,
               private personnageService: PersonnageService,
               private planetService: PlanetService,
-              private filmService: FilmService) { }
+              private filmService: FilmService,
+              private vehiculeService: VehiculeService) { }
 
   ngOnInit() {
     let name = this.activatedRoute.snapshot.paramMap.get('name');
@@ -33,7 +36,9 @@ export class DisplayDetailsComponent implements OnInit {
         this.homeworld = resu.name;
       });
       this.listeFilms = [];
+      this.listeVehicules = [];
       this.filmService.getFilmsByUrlList(this.personnage.films, this.listeFilms);
+      this.vehiculeService.getVehiculesByUrlList(this.personnage.vehicles, this.listeVehicules);
     });
   }
 

@@ -1,6 +1,7 @@
 <div *ngIf="this.homeworld !== undefined
           && this.personnage !== undefined
-          && this.listeFilms !== []">
+          && this.listeFilms !== []
+          && this.listeVehicules !== []">
   <mat-grid-list cols="4" gutterSize="1em">
     <mat-grid-tile rowspan="2" colspan="2">
       <mat-grid-tile-header>Profil</mat-grid-tile-header>
@@ -37,11 +38,14 @@
         <p *ngFor="let element of this.listeFilms">{{element}}</p>
       </div>
     </mat-grid-tile>
-    <mat-grid-tile>
+    <mat-grid-tile style = "overflow:auto;">
       <mat-grid-tile-header>Top Gun !</mat-grid-tile-header>
     </mat-grid-tile>
-    <mat-grid-tile>
+    <mat-grid-tile style = "overflow:auto;">
       <mat-grid-tile-header>Vrouuummm</mat-grid-tile-header>
+      <div class="liste-films">
+        <p *ngFor="let element of this.listeVehicules">{{element}}</p>
+      </div>
     </mat-grid-tile>
   </mat-grid-list>
 </div>

@@ -24,7 +24,5 @@ export class FilmService {
 
     setTimeout(function() {
     }, 2000);
-
-    console.log(noms);
   }
 }

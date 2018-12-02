@@ -17,4 +17,18 @@ export class VehiculeService {
     return this.httpClient.get<Vehicule>(URL_API + '/vehicles/' + id);
   }
 
+  getVehiculeByUrl(url: string): Observable<Vehicule> {
+    return this.httpClient.get<Vehicule>(url);
+  }
+  getVehiculesByUrlList(list: string[], vehicules: string[]) {
+    for (let i = 0; i < list.length; i++) {
+      this.getVehiculeByUrl(list[i]).subscribe(res => {
+        vehicules.push(res.name);
+      });
+    }
+
+    setTimeout(function() {
+    }, 2000);
+  }
+
 }
