@@ -3,7 +3,6 @@ import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Personnage } from '../models/personnage';
 import { Observable } from 'rxjs/internal/Observable';
-import { of } from 'rxjs';
 
 const URL_API = environment.apiUrl;
 
@@ -22,14 +21,14 @@ export class PersonnageService {
     return this.httpClient.get<any>(URL_API + '/people/?search=' + name);
   }
 
-  getAllPersonnage(tableau:Personnage[]) {
-    for(var i = 1; i<89; i++) {
-      this.getPersonnageById(i).subscribe(res=>{
+  getAllPersonnage(tableau: Personnage[]) {
+    for (let i = 1; i < 89; i++) {
+      this.getPersonnageById(i).subscribe(res => {
         tableau.push(res);
       });
     }
 
     setTimeout(function() {
-    },4000);
+    }, 4000);
   }
 }

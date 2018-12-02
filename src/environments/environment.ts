@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   apiUrl: 'https://swapi.co/api',
-  baseUrl: 'http://localhost:4200'
+  baseUrl: 'http://localhost:4200',
+  urlImg: ''
 };
 
 /*

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatExpansionModule } from '@angular/material';
@@ -28,6 +29,7 @@ import { DisplayDetailsComponent } from './components/display-details/display-de
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    CommonModule,
     MatExpansionModule,
     MatButtonModule,
     MatSidenavModule,
