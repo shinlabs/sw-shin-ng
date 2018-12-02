@@ -18,19 +18,28 @@ td{
   text-align: center;
 }
 
-
+.profil{
+  margin-top:3em;
+}
 .photo-info-general{
   display:flex;
   justify-content: space-between;
-  background-color:#777777;
+  background-color:#4658b0;
 }
 
 .description-physique {
   display:flex;
   flex-direction:column;
+  color:white;
 
 }
 
 .table-description-physique {
   align-self:center;
+}
+
+.liste-films{
+  margin-top:3em;
+  overflow:auto;
+
 }

@@ -1,6 +1,9 @@
-<div *ngIf="this.homeworld !== undefined && this.personnage !== undefined">
+<div *ngIf="this.homeworld !== undefined
+          && this.personnage !== undefined
+          && this.listeFilms !== []">
   <mat-grid-list cols="4" gutterSize="1em">
     <mat-grid-tile rowspan="2" colspan="2">
+      <mat-grid-tile-header>Profil</mat-grid-tile-header>
       <div class = "profil">
         <div class="photo-info-general">
           <img src="{{urlImg}}/assets/generic-avatar.png">
@@ -16,8 +19,8 @@
         <div class="description-physique">
           <h3>Description physique</h3>
           <table class="table-description-physique">
-            <tr><td>Hauteur</td><td><p>{{this.personnage.height}}</p></td></tr>
-            <tr><td>Poids</td><td><p>{{this.personnage.mass}}</p></td></tr>
+            <tr><td>Hauteur</td><td><p>{{this.personnage.height}} cm</p></td></tr>
+            <tr><td>Poids</td><td><p>{{this.personnage.mass}} kg</p></td></tr>
             <tr><td>Couleur de peau</td><td><p>{{this.personnage.skin_color}}</p></td></tr>
             <tr><td>Couelur de cheveux</td><td><p>{{this.personnage.hair_color}}</p></td></tr>
             <tr><td>Couelur des yeux</td><td><p>{{this.personnage.eye_color}}</p></td></tr>
@@ -25,9 +28,20 @@
         </div>
       </div>
     </mat-grid-tile>
-    <mat-grid-tile>2</mat-grid-tile>
-    <mat-grid-tile>3</mat-grid-tile>
-    <mat-grid-tile>4</mat-grid-tile>
-    <mat-grid-tile>5</mat-grid-tile>
+    <mat-grid-tile>
+      <mat-grid-tile-header>Espèce</mat-grid-tile-header>
+    </mat-grid-tile>
+    <mat-grid-tile style = "overflow:auto;">
+      <mat-grid-tile-header>Scène 1 Prise 4</mat-grid-tile-header>
+      <div class="liste-films">
+        <p *ngFor="let element of this.listeFilms">{{element}}</p>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-grid-tile-header>Top Gun !</mat-grid-tile-header>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-grid-tile-header>Vrouuummm</mat-grid-tile-header>
+    </mat-grid-tile>
   </mat-grid-list>
 </div>

@@ -17,7 +17,7 @@ export class DisplayWholeListComponent implements OnInit {
   listPersonnages:[];
 
   constructor(private personnageService: PersonnageService,
-              private router:Router) { }
+              private router: Router) { }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -26,27 +26,27 @@ export class DisplayWholeListComponent implements OnInit {
   }
 
   async getAllPersonnage() {
-    this.listPersonnages=[];
-    let promise = new Promise((res, rej) => {
+    this.listPersonnages = [];
+    const promise = new Promise((res, rej) => {
       this.personnageService.getAllPersonnage(this.listPersonnages);
-      setTimeout(() => res("done"), 4000);
+      setTimeout(() => res('done'), 4000);
     });
 
-    let result = await promise;
+    const result = await promise;
 
     this.dataSource = new MatTableDataSource<Personnage>(this.listPersonnages);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
 
-  viewDetails(name:string) {
-    let pers = this.listPersonnages.find(element => {
+  viewDetails(name: string) {
+    const pers = this.listPersonnages.find(element => {
       return (<Personnage>element).name === name;
     });
 
-    let pers2 = <Personnage>pers;
+    const pers2 = <Personnage>pers;
 
-    this.router.navigateByUrl("/personnage/details/" + pers2.name, {skipLocationChange:false});
+    this.router.navigateByUrl('/personnage/details/' + pers2.name, {skipLocationChange:false});
 
   }
 
