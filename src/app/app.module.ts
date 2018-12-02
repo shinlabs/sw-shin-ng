@@ -9,6 +9,7 @@ import { MatButtonModule, MatSidenavModule, MatToolbarModule } from '@angular/ma
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
@@ -33,7 +34,8 @@ import { DisplayDetailsComponent } from './components/display-details/display-de
     MatToolbarModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,7 +10,7 @@
 }
 
 mat-toolbar-row {
-  box-shadow:0 0.1em 1em black;
+  box-shadow:0 0.1em 0.5em black;
 }
 
 mat-sidenav-container {
