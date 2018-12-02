@@ -37,5 +37,6 @@ l'url fourni par swapi
  cas "ressources multiples lors de l'affichage de détails")
 - Changer l'appel get pour avoir tous les personnages / véhicules
 - Améliorer la tile principale des détails d'un véhicule
+- Ajouter loading page
 
 
