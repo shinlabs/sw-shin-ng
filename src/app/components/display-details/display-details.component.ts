@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { PersonnageService } from '../../services/personnage.service';
 
 import { ActivatedRoute } from '@angular/router';
+import {Personnage} from '../../models/personnage';
 
 @Component({
   selector: 'app-display-details',
@@ -9,10 +11,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DisplayDetailsComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  personnage:Personnage;
+
+  constructor(private activatedRoute: ActivatedRoute,
+              private personnageService: PersonnageService) { }
 
   ngOnInit() {
-    console.log(this.activatedRoute.snapshot.paramMap.get('name'));
+    let name = this.activatedRoute.snapshot.paramMap.get('name');
+    this.personnageService.getPersonnageByName(name).subscribe(res => {
+      this.personnage = res.results[0];
+    })
   }
 
 }

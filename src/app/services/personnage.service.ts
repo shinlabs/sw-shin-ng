@@ -14,13 +14,17 @@ export class PersonnageService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getPersonnage(id: number): Observable<Personnage> {
+  getPersonnageById(id: number): Observable<Personnage> {
     return this.httpClient.get<Personnage>(URL_API + '/people/' + id);
+  }
+
+  getPersonnageByName(name: string): Observable<any> {
+    return this.httpClient.get<any>(URL_API + '/people/?search=' + name);
   }
 
   getAllPersonnage(tableau:Personnage[]) {
     for(var i = 1; i<89; i++) {
-      this.getPersonnage(i).subscribe(res=>{
+      this.getPersonnageById(i).subscribe(res=>{
         tableau.push(res);
       });
     }
