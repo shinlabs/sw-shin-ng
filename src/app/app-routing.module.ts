@@ -7,7 +7,8 @@ import {DisplayDetailsComponent} from './components/display-details/display-deta
 const routes: Routes = [
   {path: 'personnage/all', component: DisplayWholeListComponent},
   {path: 'vehicule/all', component: DisplayWholeListComponent},
-  {path: 'personnage/details/:name', component: DisplayDetailsComponent}
+  {path: 'personnage/details/:name', component: DisplayDetailsComponent},
+  {path: 'vehicule/details/:name', component: DisplayDetailsComponent}
 ];
 
 @NgModule({

@@ -26,6 +26,8 @@ export class DisplayDetailsComponent implements OnInit {
   listeSpecies: string[];
   listeStarships: string[];
 
+  menu: string; // 'personnage' ou 'vehicule'
+
   constructor(private activatedRoute: ActivatedRoute,
               private personnageService: PersonnageService,
               private planetService: PlanetService,
@@ -35,7 +37,16 @@ export class DisplayDetailsComponent implements OnInit {
               private starshipService: StarshipService) { }
 
   ngOnInit() {
-    let name = this.activatedRoute.snapshot.paramMap.get('name');
+    const name = this.activatedRoute.snapshot.paramMap.get('name');
+    this.menu = this.activatedRoute.snapshot.url[0].path;
+    if (this.menu === 'personnage') {
+      this.detailsPersonnage(name);
+    } else {
+    }
+
+  }
+
+  detailsPersonnage(name: string) {
     this.personnageService.getPersonnageByName(name).subscribe(res => {
       this.personnage = res.results[0];
       this.planetService.getPlanetByUrl(this.personnage.homeworld).subscribe(resu => {

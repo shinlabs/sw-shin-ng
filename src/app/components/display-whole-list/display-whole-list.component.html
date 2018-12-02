@@ -8,20 +8,32 @@
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="birth_year">
+    <ng-container matColumnDef="birth_year" *ngIf="this.menu === 'personnage'">
       <th mat-header-cell *matHeaderCellDef> Year of Birth </th>
       <td mat-cell *matCellDef="let element"> {{element.birth_year}} </td>
     </ng-container>
 
     <!-- Weight Column -->
-    <ng-container matColumnDef="gender">
+    <ng-container matColumnDef="gender" *ngIf="this.menu === 'personnage'">
       <th mat-header-cell *matHeaderCellDef> Gender </th>
       <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
     </ng-container>
 
+    <!-- Name Column -->
+    <ng-container matColumnDef="model" *ngIf="this.menu === 'vehicule'">
+      <th mat-header-cell *matHeaderCellDef> Model </th>
+      <td mat-cell *matCellDef="let element"> {{element.model}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="vehicle_class" *ngIf="this.menu === 'vehicule'">
+      <th mat-header-cell *matHeaderCellDef> Vehicle class </th>
+      <td mat-cell *matCellDef="let element"> {{element.vehicle_class}} </td>
+    </ng-container>
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="change-color-on-hover"
-    (click)="viewDetails(row.name)"></tr>
+        (click)="viewDetails(row.name)"></tr>
   </table>
 
   <mat-paginator [pageSize]="20" showFirstLastButtons></mat-paginator>
