@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {PersonnageService} from '../../services/personnage.service';
-import {VehiculeService} from '../../services/vehicule.service';
+import { VehiculeService} from '../../services/vehicule.service';
+import { Router } from '@angular/router';
 
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {Personnage} from '../../models/personnage';
@@ -15,7 +16,8 @@ export class DisplayWholeListComponent implements OnInit {
   dataSource;
   listPersonnages:[];
 
-  constructor(private personnageService: PersonnageService) { }
+  constructor(private personnageService: PersonnageService,
+              private router:Router) { }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -43,6 +45,8 @@ export class DisplayWholeListComponent implements OnInit {
     });
 
     let pers2 = <Personnage>pers;
+
+    this.router.navigateByUrl("/personnage/details/" + pers2.name, {skipLocationChange:false});
 
   }
 
