@@ -15,6 +15,7 @@ Utiliser les apis de [SWAPI](https://swapi.co/documentation) et implémenter les
 
 ## Carnet de bord (ordre anti-chronologique)
 
+- Cas "aucune ressource" ou "ressources multiples" pris en charge
 - Pagination avec la bonne requête GET
 - Liens entre personnages et véhicules ok
 - Affichage des détails d'un vehicule presque ok
@@ -33,10 +34,11 @@ Quand j'aurais finis les 4 fonctionnalités attendues, je changerai le code pour
 l'url fourni par swapi
 
 ## Ce qu'il reste à faire
-- Tester les liens d'affichage des ressources (cas "ressource inexistante",
+- [FAIT] Tester les liens d'affichage des ressources (cas "ressource inexistante",
  cas "ressources multiples lors de l'affichage de détails")
 - [FAIT] Changer l'appel get pour avoir tous les personnages / véhicules
 - Améliorer la tile principale des détails d'un véhicule
 - Ajouter loading page
+- Permettre l'accès direct à la page de détails, sans passer par la page liste
 
 
