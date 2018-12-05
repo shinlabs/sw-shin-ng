@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {MainComponent} from './components/main/main.component';
 import {DisplayWholeListComponent} from './components/display-whole-list/display-whole-list.component';
 import {DisplayDetailsComponent} from './components/display-details/display-details.component';
 

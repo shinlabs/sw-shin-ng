@@ -20,12 +20,12 @@ td{
 }
 
 input{
-  padding : 0.5em;
-  background-color:#444444;
-  border-radius:1em;
-  border:solid 1px #444444;
-  color:white;
-}
+   padding : 0.5em;
+   background-color:#444444;
+   border-radius:1em;
+   border:solid 1px #444444;
+   color:white;
+ }
 
 button{
   width:15em;

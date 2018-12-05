@@ -90,7 +90,7 @@ export class DisplayWholeListComponent implements OnInit {
   displays(event: PageEvent) {
     if (this.menu === 'personnage') {
       this.getPersonnagesWithPagination(event.pageIndex + 1);
-    } else if (this.menu === 'Vehicules') {
+    } else if (this.menu === 'vehicule') {
       this.getVehiculesWithPagination(event.pageIndex + 1);
     }
   }

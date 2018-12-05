@@ -5,6 +5,7 @@ import { FilmService } from '../../services/film.service';
 import { VehiculeService } from '../../services/vehicule.service';
 import { SpeciesService } from '../../services/species.service';
 import { environment } from '../../../environments/environment';
+import { Router } from '@angular/router';
 
 import { ActivatedRoute } from '@angular/router';
 import {Personnage} from '../../models/personnage';
@@ -39,6 +40,7 @@ export class DisplayDetailsComponent implements OnInit {
   menu: string; // 'personnage' ou 'vehicule'
 
   constructor(private activatedRoute: ActivatedRoute,
+              private router: Router,
               private personnageService: PersonnageService,
               private planetService: PlanetService,
               private filmService: FilmService,
@@ -102,7 +104,11 @@ export class DisplayDetailsComponent implements OnInit {
       if (res.count === 0) {
 
       } else if (res.count >= 2) {
-
+        this.namesInList = [];
+        this.multipleSearchResults = true;
+        res.results.forEach(element => {
+          this.namesInList.push(element.name);
+        });
       } else {
       this.vehicule = res.results[0];
       this.listeFilms = [];
@@ -116,8 +122,10 @@ export class DisplayDetailsComponent implements OnInit {
   goSearch() {
     this.multipleSearchResults = false;
     if (this.menu === 'personnage') {
+      this.router.navigateByUrl('/personnage/details/' + this.resourceToSearch, {skipLocationChange: false});
       this.detailsPersonnage(this.resourceToSearch);
     } else {
+      this.router.navigateByUrl('/vehicule/details/' + this.resourceToSearch, {skipLocationChange: false});
       this.detailsVehicule(this.resourceToSearch);
     }
 

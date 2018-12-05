@@ -1,9 +1,7 @@
 <div class="container-principal">
   <div class="container-searchbar">
-    <form [formGroup]="formSearch" (ngSubmit)="goSearch()">
-      <mat-form-field>
-        <input placeholder="Recherche" formControlName="recherche">
-      </mat-form-field>
+    <form [formGroup]="formSearch" (submit)="goSearch()">
+      <input type="text" placeholder="Recherche" formControlName="recherche" value="">
     </form>
   </div>
   <div class="liste-de-noms" *ngIf="multipleSearchResults">
