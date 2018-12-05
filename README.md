@@ -25,14 +25,6 @@ Utiliser les apis de [SWAPI](https://swapi.co/documentation) et implémenter les
 - Création des services
 - Création des models
 
-## Explication des choix
-
-- La récupération de tous les personnages ou de tous les véhicules se fait grâce
-à autant de requêtes get que de ressources respectives.
-Je n'avais pas bien vu qu'il y avait une url pour avoir toutes les ressources en un coup.
-Quand j'aurais finis les 4 fonctionnalités attendues, je changerai le code pour utiliser
-l'url fourni par swapi
-
 ## Ce qu'il reste à faire
 - [FAIT] Tester les liens d'affichage des ressources (cas "ressource inexistante",
  cas "ressources multiples lors de l'affichage de détails")
