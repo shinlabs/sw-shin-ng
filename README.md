@@ -15,6 +15,7 @@ Utiliser les apis de [SWAPI](https://swapi.co/documentation) et implémenter les
 
 ## Carnet de bord (ordre anti-chronologique)
 
+- Pagination avec la bonne requête GET
 - Liens entre personnages et véhicules ok
 - Affichage des détails d'un vehicule presque ok
 - Affichage des détails d'un personnage (utilisation mat-grid)
@@ -34,7 +35,7 @@ l'url fourni par swapi
 ## Ce qu'il reste à faire
 - Tester les liens d'affichage des ressources (cas "ressource inexistante",
  cas "ressources multiples lors de l'affichage de détails")
-- Changer l'appel get pour avoir tous les personnages / véhicules
+- [FAIT] Changer l'appel get pour avoir tous les personnages / véhicules
 - Améliorer la tile principale des détails d'un véhicule
 - Ajouter loading page
 
