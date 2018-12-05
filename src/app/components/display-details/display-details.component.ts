@@ -74,7 +74,11 @@ export class DisplayDetailsComponent implements OnInit {
       if (res.count === 0) {
         alert('toto');
       } else if (res.count >= 2) {
+        this.namesInList = [];
         this.multipleSearchResults = true;
+        res.results.forEach(element => {
+          this.namesInList.push(element.name);
+        });
       } else {
           this.personnage = res.results[0];
           this.planetService.getPlanetByUrl(this.personnage.homeworld).subscribe(resu => {
@@ -118,6 +122,11 @@ export class DisplayDetailsComponent implements OnInit {
     }
 
     this.creationFormSearch();
+  }
+
+  fillResourceToSearch(name: string) {
+    this.resourceToSearch = name;
+    this.goSearch();
   }
 
 }
