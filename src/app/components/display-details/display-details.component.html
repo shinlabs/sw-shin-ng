@@ -2,13 +2,13 @@
   <div class="container-searchbar">
     <form [formGroup]="formSearch" (ngSubmit)="goSearch()">
       <mat-form-field>
-        <input matInput placeholder="Recherche" formControlName="recherche">
+        <input placeholder="Recherche" formControlName="recherche">
       </mat-form-field>
     </form>
   </div>
   <div class="liste-de-noms" *ngIf="multipleSearchResults">
     <ul>
-      <li *ngFor="let name of namesInList"><button mat-button (click)="fillResourceToSearch(name)">{{name}}</button></li>
+      <li *ngFor="let name of namesInList"><button (click)="fillResourceToSearch(name)">{{name}}</button></li>
     </ul>
   </div>
   <!--           CODE POUR LES TILES D'UN PERSONNAGE         -->

@@ -19,6 +19,42 @@ td{
   text-align: center;
 }
 
+input{
+  padding : 0.5em;
+  background-color:#444444;
+  border-radius:1em;
+  border:solid 1px #444444;
+  color:white;
+}
+
+button{
+  width:15em;
+  padding-top:0.5em;
+  padding-bottom:0.5em;
+  background-color:#ffa849;
+  color:white;
+  border:solid 0 #ffa849;
+  margin-bottom:0.5em;
+  font-weight: bold;
+}
+
+button:hover{
+  background-color:#ff931e;
+  border: solid 0 #ff931e;
+}
+
+ul {
+  list-style-type:none;
+  padding-left:0;
+}
+
+.liste-de-noms{
+  display:flex;
+  justify-content:center;
+  max-height:25em;
+  overflow:auto;
+  width:18em;
+}
 .container-principal{
   display:flex;
   flex-direction:column;
@@ -28,6 +64,8 @@ td{
 
 .container-searchbar{
   height:4em;
+  display:flex;
+  justify-content:center;
 }
 .profil{
   margin-top:3em;
