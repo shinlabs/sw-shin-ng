@@ -13,8 +13,11 @@ import {StarshipService} from '../../services/starship.service';
 import {Vehicule} from '../../models/vehicule';
 import {FormControl, FormGroup} from '@angular/forms';
 
+import {ToastrService} from 'ngx-toastr';
+
 const URL_IMG = environment.urlImg;
 
+// @ts-ignore
 @Component({
   selector: 'app-display-details',
   templateUrl: './display-details.component.html',
@@ -46,7 +49,8 @@ export class DisplayDetailsComponent implements OnInit {
               private filmService: FilmService,
               private vehiculeService: VehiculeService,
               private speciesService: SpeciesService,
-              private starshipService: StarshipService) { }
+              private starshipService: StarshipService,
+              private toastService: ToastrService) { }
 
   ngOnInit() {
     const name = this.activatedRoute.snapshot.paramMap.get('name');
@@ -74,7 +78,7 @@ export class DisplayDetailsComponent implements OnInit {
     this.personnage = undefined;
     this.personnageService.getPersonnageByName(name).subscribe(res => {
       if (res.count === 0) {
-        alert('toto');
+        this.toastService.error('La ressource n\'existe pas', 'Oups !');
       } else if (res.count >= 2) {
         this.namesInList = [];
         this.multipleSearchResults = true;
@@ -102,7 +106,7 @@ export class DisplayDetailsComponent implements OnInit {
     this.vehicule = undefined;
     this.vehiculeService.getVehiculeByName(name).subscribe(res => {
       if (res.count === 0) {
-
+        this.toastService.error('La ressource n\'existe pas', 'Oups !');
       } else if (res.count >= 2) {
         this.namesInList = [];
         this.multipleSearchResults = true;

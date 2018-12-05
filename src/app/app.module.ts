@@ -21,6 +21,8 @@ import { MainComponent } from './components/main/main.component';
 import { DisplayWholeListComponent } from './components/display-whole-list/display-whole-list.component';
 import { DisplayDetailsComponent } from './components/display-details/display-details.component';
 
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,12 @@ import { DisplayDetailsComponent } from './components/display-details/display-de
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
+      progressBar: true,
+      easeTime: 500
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
