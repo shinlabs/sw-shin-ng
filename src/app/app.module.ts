@@ -12,6 +12,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatGridListModule } from '@angular/material/grid-list';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material';
+import { MatFormFieldModule } from '@angular/material';
+
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
 import { DisplayWholeListComponent } from './components/display-whole-list/display-whole-list.component';
@@ -37,7 +41,11 @@ import { DisplayDetailsComponent } from './components/display-details/display-de
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatGridListModule
+    MatGridListModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

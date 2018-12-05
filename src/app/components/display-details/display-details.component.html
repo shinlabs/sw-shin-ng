@@ -1,87 +1,96 @@
-<!--           CODE POUR LES TILES D'UN PERSONNAGE         -->
-<div *ngIf="this.homeworld !== undefined
+<div class="container-principal">
+  <div class="container-searchbar">
+    <form [formGroup]="formSearch" (ngSubmit)="goSearch()">
+      <mat-form-field>
+        <input matInput placeholder="Recherche" formControlName="recherche">
+      </mat-form-field>
+    </form>
+  </div>
+  <!--           CODE POUR LES TILES D'UN PERSONNAGE         -->
+  <div *ngIf="this.homeworld !== undefined
           && this.personnage !== undefined
           && this.menu === 'personnage'">
-  <mat-grid-list cols="4" gutterSize="1em">
-    <mat-grid-tile rowspan="2" colspan="2">
-      <mat-grid-tile-header>Profil</mat-grid-tile-header>
-      <div class = "profil">
-        <div class="photo-info-general">
-          <img src="{{urlImg}}/assets/generic-avatar.png">
-          <div class="info-general">
-            <table>
-              <tr><td>Nom</td><td><p>{{this.personnage.name}}</p></td></tr>
-              <tr><td>Sexe</td><td><p>{{this.personnage.gender}}</p></td></tr>
-              <tr><td>Année de naissance</td><td><p>{{this.personnage.birth_year}}</p></td></tr>
-              <tr><td>Monde d'origine</td><td><p>{{this.homeworld}}</p></td></tr>
+    <mat-grid-list cols="4" gutterSize="1em">
+      <mat-grid-tile rowspan="2" colspan="2">
+        <mat-grid-tile-header>Profil</mat-grid-tile-header>
+        <div class = "profil">
+          <div class="photo-info-general">
+            <img src="{{urlImg}}/assets/generic-avatar.png">
+            <div class="info-general">
+              <table>
+                <tr><td>Nom</td><td><p>{{this.personnage.name}}</p></td></tr>
+                <tr><td>Sexe</td><td><p>{{this.personnage.gender}}</p></td></tr>
+                <tr><td>Année de naissance</td><td><p>{{this.personnage.birth_year}}</p></td></tr>
+                <tr><td>Monde d'origine</td><td><p>{{this.homeworld}}</p></td></tr>
+              </table>
+            </div>
+          </div>
+          <div class="description-physique">
+            <h3>Description physique</h3>
+            <table class="table-description-physique">
+              <tr><td>Hauteur</td><td><p>{{this.personnage.height}} cm</p></td></tr>
+              <tr><td>Poids</td><td><p>{{this.personnage.mass}} kg</p></td></tr>
+              <tr><td>Couleur de peau</td><td><p>{{this.personnage.skin_color}}</p></td></tr>
+              <tr><td>Couleur de cheveux</td><td><p>{{this.personnage.hair_color}}</p></td></tr>
+              <tr><td>Couleur des yeux</td><td><p>{{this.personnage.eye_color}}</p></td></tr>
             </table>
           </div>
         </div>
-        <div class="description-physique">
-          <h3>Description physique</h3>
-          <table class="table-description-physique">
-            <tr><td>Hauteur</td><td><p>{{this.personnage.height}} cm</p></td></tr>
-            <tr><td>Poids</td><td><p>{{this.personnage.mass}} kg</p></td></tr>
-            <tr><td>Couleur de peau</td><td><p>{{this.personnage.skin_color}}</p></td></tr>
-            <tr><td>Couleur de cheveux</td><td><p>{{this.personnage.hair_color}}</p></td></tr>
-            <tr><td>Couleur des yeux</td><td><p>{{this.personnage.eye_color}}</p></td></tr>
-          </table>
+      </mat-grid-tile>
+      <mat-grid-tile style = "overflow:auto;">
+        <mat-grid-tile-header>Espèce</mat-grid-tile-header>
+        <div class="liste">
+          <p *ngFor="let element of this.listeSpecies">{{element}}</p>
         </div>
-      </div>
-    </mat-grid-tile>
-    <mat-grid-tile style = "overflow:auto;">
-      <mat-grid-tile-header>Espèce</mat-grid-tile-header>
-      <div class="liste">
-        <p *ngFor="let element of this.listeSpecies">{{element}}</p>
-      </div>
-    </mat-grid-tile>
-    <mat-grid-tile style = "overflow:auto;">
-      <mat-grid-tile-header>Scène 1 Prise 4</mat-grid-tile-header>
-      <div class="liste">
-        <p *ngFor="let element of this.listeFilms">{{element}}</p>
-      </div>
-    </mat-grid-tile>
-    <mat-grid-tile style = "overflow:auto;">
-      <mat-grid-tile-header>Top Gun !</mat-grid-tile-header>
-      <div class="liste">
-        <p *ngFor="let element of this.listeStarships">{{element}}</p>
-      </div>
-    </mat-grid-tile>
-    <mat-grid-tile style = "overflow:auto;">
-      <mat-grid-tile-header>Vrouuummm</mat-grid-tile-header>
-      <div class="liste liens">
-        <a *ngFor="let element of this.listeVehicules" routerLink="/vehicule/details/{{element}}">{{element}}</a>
-      </div>
-    </mat-grid-tile>
-  </mat-grid-list>
-</div>
+      </mat-grid-tile>
+      <mat-grid-tile style = "overflow:auto;">
+        <mat-grid-tile-header>Scène 1 Prise 4</mat-grid-tile-header>
+        <div class="liste">
+          <p *ngFor="let element of this.listeFilms">{{element}}</p>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile style = "overflow:auto;">
+        <mat-grid-tile-header>Top Gun !</mat-grid-tile-header>
+        <div class="liste">
+          <p *ngFor="let element of this.listeStarships">{{element}}</p>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile style = "overflow:auto;">
+        <mat-grid-tile-header>Vrouuummm</mat-grid-tile-header>
+        <div class="liste liens">
+          <a *ngFor="let element of this.listeVehicules" routerLink="/vehicule/details/{{element}}">{{element}}</a>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
 
 
 
-<!--           CODE POUR LES TILES D'UN VEIHICULE         -->
-<div *ngIf="this.menu==='vehicule'
+  <!--           CODE POUR LES TILES D'UN VEIHICULE         -->
+  <div *ngIf="this.menu==='vehicule'
             && this.vehicule !== undefined">
-  <mat-grid-list cols="4" gutterSize="1em">
-    <mat-grid-tile colspan="3" rowspan="2">
-      <table>
-        <tr><td>Nom</td><td><p>{{this.vehicule.name}}</p></td></tr>
-        <tr><td>Modèle</td><td><p>{{this.vehicule.model}}</p></td></tr>
-        <tr><td>Type de véhicule</td><td><p>{{this.vehicule.vehicle_class}}</p></td></tr>
-        <tr><td>Longueur</td><td><p>{{this.vehicule.length}}</p></td></tr>
-      </table>
-    </mat-grid-tile>
-    <mat-grid-tile style = "overflow:auto;">
-      <mat-grid-tile-header>Scène 1 Prise 4</mat-grid-tile-header>
-      <div class="liste">
-        <p *ngFor="let element of this.listeFilms">{{element}}</p>
-      </div>
-    </mat-grid-tile>
-    <mat-grid-tile style = "overflow: auto;">
-      <mat-grid-tile-header>Pilotes</mat-grid-tile-header>
-      <div class="liste liens">
-        <a *ngFor="let element of this.listePilots" routerLink="/personnage/details/{{element}}">
-          {{element}}</a>
-      </div>
-    </mat-grid-tile>
-  </mat-grid-list>
+    <mat-grid-list cols="4" gutterSize="1em">
+      <mat-grid-tile colspan="3" rowspan="2">
+        <table>
+          <tr><td>Nom</td><td><p>{{this.vehicule.name}}</p></td></tr>
+          <tr><td>Modèle</td><td><p>{{this.vehicule.model}}</p></td></tr>
+          <tr><td>Type de véhicule</td><td><p>{{this.vehicule.vehicle_class}}</p></td></tr>
+          <tr><td>Longueur</td><td><p>{{this.vehicule.length}}</p></td></tr>
+        </table>
+      </mat-grid-tile>
+      <mat-grid-tile style = "overflow:auto;">
+        <mat-grid-tile-header>Scène 1 Prise 4</mat-grid-tile-header>
+        <div class="liste">
+          <p *ngFor="let element of this.listeFilms">{{element}}</p>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile style = "overflow: auto;">
+        <mat-grid-tile-header>Pilotes</mat-grid-tile-header>
+        <div class="liste liens">
+          <a *ngFor="let element of this.listePilots" routerLink="/personnage/details/{{element}}">
+            {{element}}</a>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
 </div>

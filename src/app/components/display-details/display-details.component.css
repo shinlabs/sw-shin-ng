@@ -19,6 +19,16 @@ td{
   text-align: center;
 }
 
+.container-principal{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  align-items:center;
+}
+
+.container-searchbar{
+  height:4em;
+}
 .profil{
   margin-top:3em;
 }
