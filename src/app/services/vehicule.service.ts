@@ -21,15 +21,8 @@ export class VehiculeService {
     return this.httpClient.get<any>(URL_API + '/vehicles/?search=' + name);
   }
 
-  getAllVehicules(tableau: Vehicule[]) {
-    for (let i = 1; i <= 73; i++) {
-      this.getVehiculeById(i).subscribe(res => {
-        tableau.push(res);
-      });
-    }
-
-    setTimeout(function() {
-    }, 4000);
+  getVehiculesWithPagination(page: number): Observable<any> {
+    return this.httpClient.get<any>(URL_API + '/vehicles/?page=' + page);
   }
 
   getVehiculeByUrl(url: string): Observable<Vehicule> {

@@ -25,15 +25,8 @@ export class PersonnageService {
     return this.httpClient.get<Personnage>(url);
   }
 
-  getAllPersonnage(tableau: Personnage[]) {
-    for (let i = 1; i < 89; i++) {
-      this.getPersonnageById(i).subscribe(res => {
-        tableau.push(res);
-      });
-    }
-
-    setTimeout(function() {
-    }, 4000);
+  getPersonnagesWithPagination(page: number): Observable<any> {
+    return this.httpClient.get<any>(URL_API + '/people/?page=' + page);
   }
 
   getPersonnagesByUrlList(list: string[], personnages: string[]) {

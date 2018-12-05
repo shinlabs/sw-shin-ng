@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {PersonnageService} from '../../services/personnage.service';
 import { VehiculeService} from '../../services/vehicule.service';
 import { Router } from '@angular/router';
@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {Personnage} from '../../models/personnage';
 import {Vehicule} from '../../models/vehicule';
+import {PageEvent} from '@angular/material/typings/paginator';
 
 @Component({
   selector: 'app-display-whole-list',
@@ -27,56 +28,46 @@ export class DisplayWholeListComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+
   ngOnInit() {
     this.menu = this.activatedRoute.snapshot.url[0].path;
+    this.paginator.disabled = false;
     if (this.menu === 'personnage') {
       this.displayedColumns = ['name', 'birth_year', 'gender'];
-      this.getAllPersonnage();
+      this.getPersonnagesWithPagination(1);
     } else {
       this.displayedColumns = ['name', 'model', 'vehicle_class'];
-      this.getAllVehicule();
+      this.getVehiculesWithPagination(1);
     }
 
   }
 
-  async getAllPersonnage() {
-    this.listePersonnages = [];
-    const promise = new Promise((res, rej) => {
-      this.personnageService.getAllPersonnage(this.listePersonnages);
-      setTimeout(() => res('done'), 4000);
+  getPersonnagesWithPagination(pageNumber: number) {
+    this.personnageService.getPersonnagesWithPagination(pageNumber).subscribe(res => {
+      this.listePersonnages = res.results;
+      this.dataSource = new MatTableDataSource<Personnage>(this.listePersonnages);
+      this.paginator.length = res.count;
     });
-
-    const result = await promise;
-
-    this.dataSource = new MatTableDataSource<Personnage>(this.listePersonnages);
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
   }
 
-  async getAllVehicule() {
-    this.listeVehicules = [];
-    const promise = new Promise((res, rej) => {
-      this.vehiculeService.getAllVehicules(this.listeVehicules);
-      setTimeout(() => res('done'), 4000);
+  getVehiculesWithPagination(pageNumber: number) {
+    this.vehiculeService.getVehiculesWithPagination(pageNumber).subscribe(res => {
+      this.listeVehicules = res.results;
+      this.dataSource = new MatTableDataSource<Vehicule>(this.listeVehicules);
+      this.paginator.length = res.count;
     });
-
-    const result = await promise;
-
-    this.dataSource = new MatTableDataSource<Personnage>(this.listeVehicules);
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
   }
 
   viewDetails(name: string) {
     if (this.menu === 'personnage') {
-      this.detailsPersonnage(name);
+      this.viewDetailsPersonnage(name);
     } else {
-      this.detailsVehicule(name);
+      this.viewDetailsVehicule(name);
     }
 
   }
 
-  detailsPersonnage(name: string) {
+  viewDetailsPersonnage(name: string) {
     const pers = this.listePersonnages.find(element => {
       return (<Personnage>element).name === name;
     });
@@ -86,7 +77,7 @@ export class DisplayWholeListComponent implements OnInit {
     this.router.navigateByUrl('/personnage/details/' + pers2.name, {skipLocationChange: false});
   }
 
-  detailsVehicule(name: string) {
+  viewDetailsVehicule(name: string) {
     const vehic = this.listeVehicules.find(element => {
       return (<Vehicule>element).name === name;
     });
@@ -94,6 +85,14 @@ export class DisplayWholeListComponent implements OnInit {
     const vehic2 = <Vehicule>vehic;
 
     this.router.navigateByUrl('/vehicule/details/' + vehic2.name, {skipLocationChange: false});
+  }
+
+  displays(event: PageEvent) {
+    if (this.menu === 'personnage') {
+      this.getPersonnagesWithPagination(event.pageIndex + 1);
+    } else if (this.menu === 'Vehicules') {
+      this.getVehiculesWithPagination(event.pageIndex + 1);
+    }
   }
 
 
