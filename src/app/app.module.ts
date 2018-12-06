@@ -22,6 +22,7 @@ import { DisplayWholeListComponent } from './components/display-whole-list/displ
 import { DisplayDetailsComponent } from './components/display-details/display-details.component';
 
 import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     MatInputModule,
     MatFormFieldModule,
+    NgxSpinnerModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
       progressBar: true,

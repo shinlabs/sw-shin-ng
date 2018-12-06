@@ -14,6 +14,7 @@ import {Vehicule} from '../../models/vehicule';
 import {FormControl, FormGroup} from '@angular/forms';
 
 import {ToastrService} from 'ngx-toastr';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 const URL_IMG = environment.urlImg;
 
@@ -50,7 +51,8 @@ export class DisplayDetailsComponent implements OnInit {
               private vehiculeService: VehiculeService,
               private speciesService: SpeciesService,
               private starshipService: StarshipService,
-              private toastService: ToastrService) { }
+              private toastService: ToastrService,
+              private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     const name = this.activatedRoute.snapshot.paramMap.get('name');
@@ -75,16 +77,19 @@ export class DisplayDetailsComponent implements OnInit {
   }
 
   detailsPersonnage(name: string) {
+    this.spinner.show();
     this.personnage = undefined;
     this.personnageService.getPersonnageByName(name).subscribe(res => {
       if (res.count === 0) {
         this.toastService.error('La ressource n\'existe pas', 'Oups !');
+        this.spinner.hide();
       } else if (res.count >= 2) {
         this.namesInList = [];
         this.multipleSearchResults = true;
         res.results.forEach(element => {
           this.namesInList.push(element.name);
         });
+        this.spinner.hide();
       } else {
           this.personnage = res.results[0];
           this.planetService.getPlanetByUrl(this.personnage.homeworld).subscribe(resu => {
@@ -98,28 +103,33 @@ export class DisplayDetailsComponent implements OnInit {
           this.vehiculeService.getVehiculesByUrlList(this.personnage.vehicles, this.listeVehicules);
           this.speciesService.getSpeciesByUrlList(this.personnage.species, this.listeSpecies);
           this.starshipService.getStarshipsByUrlList(this.personnage.starships, this.listeStarships);
+          this.spinner.hide();
 
         }
     });
   }
 
   detailsVehicule(name: string) {
+    this.spinner.show();
     this.vehicule = undefined;
     this.vehiculeService.getVehiculeByName(name).subscribe(res => {
       if (res.count === 0) {
         this.toastService.error('La ressource n\'existe pas', 'Oups !');
+        this.spinner.hide();
       } else if (res.count >= 2) {
         this.namesInList = [];
         this.multipleSearchResults = true;
         res.results.forEach(element => {
           this.namesInList.push(element.name);
         });
+        this.spinner.hide();
       } else {
       this.vehicule = res.results[0];
       this.listeFilms = [];
       this.listePilots = [];
       this.filmService.getFilmsByUrlList(this.vehicule.films, this.listeFilms);
       this.personnageService.getPersonnagesByUrlList(this.vehicule.pilots, this.listePilots);
+      this.spinner.hide();
     }
     });
   }

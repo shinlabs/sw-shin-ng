@@ -9,6 +9,8 @@ import {Personnage} from '../../models/personnage';
 import {Vehicule} from '../../models/vehicule';
 import {PageEvent} from '@angular/material/typings/paginator';
 
+import { NgxSpinnerService } from 'ngx-spinner';
+
 @Component({
   selector: 'app-display-whole-list',
   templateUrl: './display-whole-list.component.html',
@@ -24,7 +26,8 @@ export class DisplayWholeListComponent implements OnInit {
   constructor(private personnageService: PersonnageService,
               private vehiculeService: VehiculeService,
               private router: Router,
-              private activatedRoute: ActivatedRoute) { }
+              private activatedRoute: ActivatedRoute,
+              private spinner: NgxSpinnerService) { }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -43,18 +46,22 @@ export class DisplayWholeListComponent implements OnInit {
   }
 
   getPersonnagesWithPagination(pageNumber: number) {
+    this.spinner.show();
     this.personnageService.getPersonnagesWithPagination(pageNumber).subscribe(res => {
       this.listePersonnages = res.results;
       this.dataSource = new MatTableDataSource<Personnage>(this.listePersonnages);
       this.paginator.length = res.count;
+      this.spinner.hide();
     });
   }
 
   getVehiculesWithPagination(pageNumber: number) {
+    this.spinner.show();
     this.vehiculeService.getVehiculesWithPagination(pageNumber).subscribe(res => {
       this.listeVehicules = res.results;
       this.dataSource = new MatTableDataSource<Vehicule>(this.listeVehicules);
       this.paginator.length = res.count;
+      this.spinner.hide();
     });
   }
 
