@@ -2,13 +2,6 @@
   background-color: #ff931e;
   height:50%;
 }
-
-.second-row {
-  background-color: #444444;
-  height:50%;
-  color:#ff931e;
-}
-
 mat-toolbar-row {
   box-shadow:0 0.1em 0.5em black;
 }
@@ -36,7 +29,7 @@ button {
   color:#ff931e;
 }
 
-a {
+.lien-autres-pages {
   margin-bottom: 1em;
   background-color:#444444;
   border : solid 1px #ff931e;
@@ -49,8 +42,25 @@ button:hover {
   cursor:not-allowed;
 }
 
-a:hover {
+.lien-autres-pages:hover {
   color:white;
   background-color:#ff931e;
   cursor:pointer;
+}
+
+.lien-toolbar{
+  border:0;
+  background-color:#ff931e;
+  color:white;
+  text-decoration:none;
+  height:100%;
+  padding-left:0.3em;
+  padding-right:0.3em;
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+}
+
+.lien-toolbar:hover{
+  background-color:#a85800;
 }
