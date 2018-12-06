@@ -76,7 +76,7 @@
     <mat-grid-list cols="5" gutterSize="1em">
       <mat-grid-tile rowspan="2" colspan="2">
         <mat-grid-tile-header>Informations générales</mat-grid-tile-header>
-        <table>
+        <table style="margin-top:3em;">
           <tr><td>Nom</td><td><p>{{this.vehicule.name}}</p></td></tr>
           <tr><td>Modèle</td><td><p>{{this.vehicule.model}}</p></td></tr>
           <tr><td>Fabricant</td><td><p>{{this.vehicule.manufacturer}}</p></td></tr>
@@ -85,7 +85,7 @@
       </mat-grid-tile>
       <mat-grid-tile rowspan="2" colspan="2">
         <mat-grid-tile-header>Caractéristiques du véhicule</mat-grid-tile-header>
-        <table>
+        <table style="margin-top:5em;">
           <tr><td>Longueur</td><td><p>{{this.vehicule.length}} m</p></td></tr>
           <tr><td>Vitesse atm. max</td><td><p>{{this.vehicule.max_atmosphering_speed}}</p></td></tr>
           <tr><td>Equipage</td><td><p>{{this.vehicule.crew}} personnes</p></td></tr>
