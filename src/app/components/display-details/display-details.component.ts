@@ -98,6 +98,7 @@ export class DisplayDetailsComponent implements OnInit {
           this.vehiculeService.getVehiculesByUrlList(this.personnage.vehicles, this.listeVehicules);
           this.speciesService.getSpeciesByUrlList(this.personnage.species, this.listeSpecies);
           this.starshipService.getStarshipsByUrlList(this.personnage.starships, this.listeStarships);
+
         }
     });
   }
